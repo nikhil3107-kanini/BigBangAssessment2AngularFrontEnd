@@ -1,0 +1,14 @@
+button.active {
+    background-color: green;
+    color: white;
+}
+
+button.inactive {
+    background-color: red;
+    color: white;
+}
+
+.form-container {
+    margin-bottom: 100px;
+    /* Adjust the margin value as needed to create enough space */
+}

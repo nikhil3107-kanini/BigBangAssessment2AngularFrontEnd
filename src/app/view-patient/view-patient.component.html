@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="main-content">
+    <div class="container mt-5" *ngIf="role === 'admin' || role === 'Admin' || role === 'Doctor' || role === 'doctor'">
+        <h1 class="mb-4 text-center font-weight-bold">Patients List</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>Phone Number</th>
+                        <th>Medical Condition</th>
+                        <th>Doctor ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let patient of patients">
+                        <td>{{ patient.patientId }}</td>
+                        <td>{{ patient.name }}</td>
+                        <td>{{ patient.age }}</td>
+                        <td>{{ patient.address }}</td>
+                        <td>{{ patient.phoneNumber }}</td>
+                        <td>{{ patient.medicalCondition }}</td>
+                        <td>{{ patient.doctorId }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div *ngIf="role === 'patient' || role === 'Patient'" class="container mt-5">
+        <div class="alert alert-danger text-center" role="alert">
+            <h2 class="font-weight-bold">You don't have access</h2>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
