@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="address">Address</label>
+                        <label for="address">City</label>
                         <input type="text" class="form-control" id="address" formControlName="address" required>
                     </div>
 
@@ -48,7 +48,9 @@
         </div>
     </div>
     <div *ngIf="role === 'doctor' || role === 'Doctor'">
-        <h1 class="fw-bold text-danger">You don't have access</h1>
+        <div class="alert alert-danger text-center" role="alert">
+            <h2 class="font-weight-bold">You don't have access</h2>
+        </div>
     </div>
 </div>
 <app-footer></app-footer>

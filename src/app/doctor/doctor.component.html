@@ -1,6 +1,7 @@
 <app-header></app-header>
-<div>
-    <div class="container mt-5" *ngIf=" role === 'admin' ||  role === 'Admin'">
+
+<div class="main-content" style="background-color: #f8f9fa; padding: 20px;">
+    <div class="container mt-5" *ngIf="role === 'admin' || role === 'Admin'">
         <h1 class="mb-4 text-center font-weight-bold">Doctors Details</h1>
 
         <!-- Update Form -->
@@ -35,14 +36,14 @@
 
         </div><br>
 
-        <div>
-            <!-- Doctors Table -->
-            <table class="table mt-4">
-                <thead>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="bg-primary text-white">
                     <tr>
+                        <th>Doctor ID</th>
                         <th>Name</th>
                         <th>Specialty</th>
-                        <th>Address</th>
+                        <th>City</th>
                         <th>Phone Number</th>
                         <th>Email</th>
                         <th>Status</th>
@@ -51,14 +52,15 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let doctor of doctors">
+                        <td>{{doctor.doctorId}}</td>
                         <td>{{ doctor.name }}</td>
                         <td>{{ doctor.specialty }}</td>
                         <td>{{ doctor.address }}</td>
                         <td>{{ doctor.phoneNumber }}</td>
                         <td>{{ doctor.email }}</td>
                         <td><span><button class="btn" [class.active]="doctor.isActive"
-                        [class.inactive]="!doctor.isActive" (click)="ChangeStatus(doctor.doctorId)">{{doctor.isActive ? 'active' :
-                        'inactive'}} </button></span></td>
+        [class.inactive]="!doctor.isActive" (click)="ChangeStatus(doctor.doctorId)">{{doctor.isActive ? 'active' :
+        'inactive'}} </button></span></td>
 
 
                         <td>
@@ -68,15 +70,16 @@
                     </tr>
                 </tbody>
             </table>
-
-
         </div>
-
-
     </div><br>
-
-    <div *ngIf="role === 'patient' || role === 'Doctor' || role === 'doctor' || role ==='patient'">
-        <h1 class="fw-bold text-danger">You don't have access</h1>
-    </div><br><br>
+    <div *ngIf="role === 'patient' || role === 'Doctor' || role === 'doctor' || role ==='Patient'">
+        <div class="alert alert-danger text-center" role="alert">
+            <h2 class="font-weight-bold">You don't have access</h2>
+        </div>
+    </div><br>
 </div>
-<app-footer></app-footer>
+<section>
+    <footer>
+        <p>&copy; 2023 Hospital Paradise. All rights reserved.</p>
+    </footer>
+</section>

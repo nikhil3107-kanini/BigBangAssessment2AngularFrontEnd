@@ -19,7 +19,7 @@ export class DoctorComponent implements OnInit {
   ngOnInit(): void {
     this.getDoctors();
     this.role = localStorage.getItem('role');
-    // this.getDoctorsWithPatients();
+    
   }
   
   getDoctors(): void {
